@@ -142,6 +142,7 @@ public class StockItem {
                 + greenText;
         return str;
     }
+    //NavSys Stock info
     public static class NavSys extends StockItem{
         public NavSys(String stockCode, int quantityInStock, double price) {
             super(stockCode, quantityInStock, price);
@@ -155,6 +156,93 @@ public class StockItem {
         @Override
         public String getStockDesc(){
             return "Geovision SatNav";
+        }
+        @Override
+        public String toString(){
+            String str;
+            System.out.println(yellowText + "Getting stock info...");
+            str = greenText + "Stock code:     " + getStockCode() 
+                + greenText + "\nStock name:     " + getStockName() 
+                + greenText + "\nStock desc:     " + getStockDesc() 
+                + greenText + "\nUnits in stock: " + getQuantity() 
+                + greenText + "\nPrice:          " + getPrice() 
+                + greenText + "\nPrice with VAT: " + getPriceVAT() 
+                + greenText;
+            return str;
+        }
+    }
+    //Tires stock info
+    public static class Tires extends StockItem{
+        public Tires(String stockCode, int quantityInStock, double price) {
+            super(stockCode, quantityInStock, price);
+            
+        }       
+        @Override
+        public String getStockName(){
+            return "Car Tires";
+        }
+    
+        @Override
+        public String getStockDesc(){
+            return "Car Parts";
+        }
+        @Override
+        public String toString(){
+            String str;
+            System.out.println(yellowText + "Getting stock info...");
+            str = greenText + "Stock code:     " + getStockCode() 
+                + greenText + "\nStock name:     " + getStockName() 
+                + greenText + "\nStock desc:     " + getStockDesc() 
+                + greenText + "\nUnits in stock: " + getQuantity() 
+                + greenText + "\nPrice:          " + getPrice() 
+                + greenText + "\nPrice with VAT: " + getPriceVAT() 
+                + greenText;
+            return str;
+        }
+    }
+    //Exhaust stock info
+    public static class Exhaust extends StockItem{
+        public Exhaust(String stockCode, int quantityInStock, double price) {
+            super(stockCode, quantityInStock, price);
+            
+        }       
+        @Override
+        public String getStockName(){
+            return "Exhaust Pipe";
+        }
+    
+        @Override
+        public String getStockDesc(){
+            return "Car parts";
+        }
+        @Override
+        public String toString(){
+            String str;
+            System.out.println(yellowText + "Getting stock info...");
+            str = greenText + "Stock code:     " + getStockCode() 
+                + greenText + "\nStock name:     " + getStockName() 
+                + greenText + "\nStock desc:     " + getStockDesc() 
+                + greenText + "\nUnits in stock: " + getQuantity() 
+                + greenText + "\nPrice:          " + getPrice() 
+                + greenText + "\nPrice with VAT: " + getPriceVAT() 
+                + greenText;
+            return str;
+        }
+    }
+    //Windows stock info
+    public static class Windows extends StockItem{
+        public Windows(String stockCode, int quantityInStock, double price) {
+            super(stockCode, quantityInStock, price);
+            
+        }       
+        @Override
+        public String getStockName(){
+            return "Window";
+        }
+    
+        @Override
+        public String getStockDesc(){
+            return "Car parts";
         }
         @Override
         public String toString(){
