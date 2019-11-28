@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-/*PSEUDO CODE
+/*PART 1 PSEUDO CODE
 BEGIN
 DEFINE PRIVATE CLASS VARIABLES FOR STOCK CODE, NUM IN STOCK, ITEM PRICE.
 CREATE CONSTRUCTER FOR THESE VARIABLES
@@ -29,6 +29,7 @@ public class StockItem {
     private int numInStock;
     private double itemPrice;
     
+    //USED TO PROVIDE COLOURED TEXT
     String greenText = "\u001B[32m";
     String yellowText = "\u001B[33m";
     String redText = "\u001B[31m";
@@ -90,18 +91,20 @@ public class StockItem {
         boolean incrementValid = true;
         boolean stockLevelValid = true;
         
+        //If incremnt ammount is less than 1 set incrementValid = false 
         if (incrementAmmount < 1) {
             System.out.println(redText + "Cannot add stock, increment ammount is less than one.");
             incrementValid = false;
         }
+        //If total ammount in stock plus the increment ammount is greater than 100 set stockLevelValid = false 
         if (incrementAmmount + numInStock > 100){
             System.out.println(redText + "Cannot add stock, stock level is at max capacity.");
             stockLevelValid = false;
         }
-        
+        //If incrementValid and stockLevelValid are true(i.e. none of the above if statements have been triggered) add the stock.
         if (incrementValid && stockLevelValid){
             System.out.println(yellowText + "Adding " + incrementAmmount + " units of stock...");
-            setQuantity(numInStock + incrementAmmount);
+            setQuantity(numInStock + incrementAmmount); //Calls the setQuantity() setter method to add the stock.
         }
     }
     
@@ -109,22 +112,24 @@ public class StockItem {
         boolean decrementValid = true;
         boolean stockLevelValid = true;
         
+        //If decremnt ammount is less than 1 set decrementValid = false 
         if(decrementAmmount < 1){
             System.out.println(redText + "Cannot sell stock, decrement ammount is less than one.");
             decrementValid = false;
         }
+        //If the decrement ammount is greater than the ammount in stock set stockLevelValid = false.
         if(decrementAmmount > numInStock){
             System.out.println(redText + "Cannot sell stock, decrement ammount is greater than quantity in stock.");
             stockLevelValid = false;
         }
-        
+        //If decrementValid and stockLevelValid are true(i.e. none of the above if statements have been triggered) sell the stock.
         if(decrementValid && stockLevelValid){
             System.out.println(yellowText + "Sold " + decrementAmmount + " units of stock...");
-            setQuantity(numInStock - decrementAmmount);
-            return true;
+            setQuantity(numInStock - decrementAmmount); //Call the setQuantity() method to decrement the stock level. 
+            return true; //return the bool val of true if stock is sold as per spec. 
         }
         else{
-            return false;
+            return false; //return bool val of false if stock is not sold.
         }
     }
     
@@ -143,11 +148,13 @@ public class StockItem {
         return str;
     }
     //NavSys Stock info
-    public static class NavSys extends StockItem{
+    public static class NavSys extends StockItem{ //NavSYS class extending stockitem class
+        //NAV SYS Constructor
         public NavSys(String stockCode, int quantityInStock, double price) {
-            super(stockCode, quantityInStock, price);
-            
-        }       
+            super(stockCode, quantityInStock, price);    //using super to inherit deafult values from StockItem class    
+        }     
+        
+        //Overiding the StockItem get methods
         @Override
         public String getStockName(){
             return "Navigation System";
@@ -157,6 +164,8 @@ public class StockItem {
         public String getStockDesc(){
             return "Geovision SatNav";
         }
+        
+        //Overiding the stock items toString method
         @Override
         public String toString(){
             String str;
@@ -173,10 +182,12 @@ public class StockItem {
     }
     //Tires stock info
     public static class Tires extends StockItem{
+        //Tire class constructor
         public Tires(String stockCode, int quantityInStock, double price) {
-            super(stockCode, quantityInStock, price);
-            
+            super(stockCode, quantityInStock, price); //using super to inherit deafult values from StockItem class             
         }       
+        
+        //Overiding the StockItem get methods
         @Override
         public String getStockName(){
             return "Car Tires";
@@ -184,8 +195,9 @@ public class StockItem {
     
         @Override
         public String getStockDesc(){
-            return "Car Parts";
+            return "Premium car tyres suitable for most vehicles.";
         }
+        //Overiding the StockItem toString methods
         @Override
         public String toString(){
             String str;
@@ -202,10 +214,12 @@ public class StockItem {
     }
     //Exhaust stock info
     public static class Exhaust extends StockItem{
+        //Exhaust constructor
         public Exhaust(String stockCode, int quantityInStock, double price) {
-            super(stockCode, quantityInStock, price);
-            
+            super(stockCode, quantityInStock, price);      //using super to inherit deafult values from StockItem class   
         }       
+        
+        //Overiding the StockItem get methods
         @Override
         public String getStockName(){
             return "Exhaust Pipe";
@@ -213,8 +227,9 @@ public class StockItem {
     
         @Override
         public String getStockDesc(){
-            return "Car parts";
+            return "An exhaust pipe suitable for most sedans";
         }
+        //Overriding the StockItem toStringMethod 
         @Override
         public String toString(){
             String str;
@@ -231,10 +246,11 @@ public class StockItem {
     }
     //Windows stock info
     public static class Windows extends StockItem{
+        //Windows constructor
         public Windows(String stockCode, int quantityInStock, double price) {
-            super(stockCode, quantityInStock, price);
-            
-        }       
+            super(stockCode, quantityInStock, price); //Inheriting the values from the stock item class          
+        }
+        //Overide the get methods from StockItem
         @Override
         public String getStockName(){
             return "Window";
@@ -244,6 +260,7 @@ public class StockItem {
         public String getStockDesc(){
             return "Car parts";
         }
+        //Overide the toString Method
         @Override
         public String toString(){
             String str;
