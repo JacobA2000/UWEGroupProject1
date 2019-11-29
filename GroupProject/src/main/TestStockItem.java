@@ -16,15 +16,17 @@ public class TestStockItem {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        StockItem stock = new StockItem("A#134", 80, 2);
-        System.out.println(stock.toString());
-        stock.addStock(10);
-        System.out.println(stock.toString());
-        stock.sellStock(2);
-        System.out.println(stock.toString());
-        stock.setPrice(3);
-        System.out.println(stock.toString());
-        stock.addStock(0);
-    }
+        StockItem stock = new StockItem("E#404", 1, 1);
+        if(stock.stockPositive == true){
+            System.out.println(stock.toString());
+            stock.addStock(5);
+            System.out.println(stock.toString());
+            stock.sellStock(20);
+            System.out.println(stock.toString());
+            stock.setPrice(20);
+            System.out.println(stock.toString());
+            stock.addStock(0);
+            }
+        }
     
 }

@@ -18,14 +18,16 @@ public class TestNavSys {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        NavSys stock = new StockItem.NavSys("A#134", 80, 2);
-        System.out.println(stock.toString());
-        stock.addStock(10);
-        System.out.println(stock.toString());
-        stock.sellStock(2);
-        System.out.println(stock.toString());
-        stock.setPrice(3);
-        System.out.println(stock.toString());
-        stock.addStock(0);
+        NavSys stock = new StockItem.NavSys("A#134", 1, 30);
+        if(stock.stockPositive == true){
+            System.out.println(stock.toString());
+            stock.addStock(10);
+            System.out.println(stock.toString());
+            stock.sellStock(2);
+            System.out.println(stock.toString());
+            stock.setPrice(3);
+            System.out.println(stock.toString());
+            stock.addStock(0);
+        }
     }    
 }
