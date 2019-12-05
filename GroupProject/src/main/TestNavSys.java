@@ -21,13 +21,12 @@ public class TestNavSys {
         NavSys stock = new StockItem.NavSys("A#134", 1, 30);
         if(stock.stockPositive == true){
             System.out.println(stock.toString());
-            stock.addStock(10);
+            stock.addStock();
             System.out.println(stock.toString());
-            stock.sellStock(2);
+            stock.sellStock();
             System.out.println(stock.toString());
-            stock.setPrice(3);
+            stock.setPrice();
             System.out.println(stock.toString());
-            stock.addStock(0);
         }
     }    
 }

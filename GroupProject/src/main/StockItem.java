@@ -6,6 +6,7 @@
 
 /*PART 1 PSEUDO CODE
 BEGIN
+IMPORT SCANNER
 DEFINE PRIVATE CLASS VARIABLES FOR STOCK CODE, NUM IN STOCK, ITEM PRICE.
 CREATE CONSTRUCTER FOR THESE VARIABLES
 CREATE SET METHODS FOR PRICE AND QUANTITY
@@ -58,7 +59,11 @@ WINDOWS CLASS EXTENDING STOCK ITEM
 END CLASS
 END
 */
+
 package main;
+
+import java.util.Scanner;
+import javax.swing.text.html.HTML;
 /**
  *
  * @author Jacob
@@ -81,6 +86,8 @@ public class StockItem {
     public boolean stockPriceValid = false;
     public boolean quantityValid = false;
     
+    Scanner systemInput = new Scanner(System.in);
+    
     //STOCK ITEM CONSTRUCTOR
     public StockItem(String stockCode, int quantityInStock, double price){
         if(quantityInStock < 1){
@@ -91,7 +98,7 @@ public class StockItem {
             quantityValid = true;
         }
         if(price <= 0.0){
-            System.out.println(redText + "Cannot create stock with a set price of less than 1");
+            System.out.println(redText + "Cannot create stock with a set price of less than 0.01");
             stockPriceValid = false;
         }
         else if (price > 0){
@@ -118,9 +125,17 @@ public class StockItem {
         numInStock = quantity;
     }
     
-    public void setPrice(double price){
-        System.out.println(yellowText + "Updating price to new price of " + price + "...");
-        itemPrice = price;
+    public void setPrice(){
+        double price;
+        System.out.println(yellowText + "Please enter the desired price: ");
+        price = systemInput.nextDouble();
+        
+        if(price > 0.0){
+            System.out.println(yellowText + "Updating price to new price of " + price + "...");
+            itemPrice = price;
+        }
+        else
+            System.out.println(redText + "Cannot set price less than 0.01");
     }
     
     //GETTERS
@@ -153,9 +168,13 @@ public class StockItem {
     }
     
     //STOCK MANIPULATION METHODS
-    public void addStock(int incrementAmmount){
+    public void addStock(){
+        int incrementAmmount;
         boolean incrementValid = true;
         boolean stockLevelValid = true;
+        
+        System.out.println(yellowText + "Please enter an ammount of stock to add: ");
+        incrementAmmount = systemInput.nextInt();
         
         if (incrementAmmount < 1) {
             System.out.println(redText + "Cannot add stock, increment ammount is less than one.");
@@ -171,9 +190,13 @@ public class StockItem {
         }
     }
     
-    public boolean sellStock(int decrementAmmount){
+    public boolean sellStock(){
+        int decrementAmmount;
         boolean decrementValid = true;
         boolean stockLevelValid = true;
+        
+        System.out.println(yellowText + "Please enter an ammount of stock to sell: ");
+        decrementAmmount = systemInput.nextInt();
         
         if(decrementAmmount < 1){
             System.out.println(redText + "Cannot sell stock, decrement ammount is less than one.");
@@ -197,16 +220,18 @@ public class StockItem {
     //OUTPUT METHOD
 
     public String toString(){
-        String str;
-        System.out.println(yellowText + "Getting stock info...");
-        str = greenText + "Stock code:     " + getStockCode() 
+            String str;
+            System.out.println(yellowText + "Getting stock info...");
+            str = greenText + "-------------------STOCK INFO-------------------"
+                + greenText + "\nStock code:     " + getStockCode() 
                 + greenText + "\nStock name:     " + getStockName() 
                 + greenText + "\nStock desc:     " + getStockDesc() 
                 + greenText + "\nUnits in stock: " + getQuantity() 
                 + greenText + "\nPrice:          " + getPrice() 
-                + greenText + "\nPrice with VAT: " + getPriceVAT() 
+                + greenText + "\nPrice with VAT: " + getPriceVAT()
+                + greenText + "\n------------------------------------------------"
                 + greenText;
-        return str;
+            return str;
     }
     //NavSys Stock info
     public static class NavSys extends StockItem{
@@ -227,12 +252,14 @@ public class StockItem {
         public String toString(){
             String str;
             System.out.println(yellowText + "Getting stock info...");
-            str = greenText + "Stock code:     " + getStockCode() 
+            str = greenText + "-------------------STOCK INFO-------------------"
+                + greenText + "\nStock code:     " + getStockCode() 
                 + greenText + "\nStock name:     " + getStockName() 
                 + greenText + "\nStock desc:     " + getStockDesc() 
                 + greenText + "\nUnits in stock: " + getQuantity() 
                 + greenText + "\nPrice:          " + getPrice() 
-                + greenText + "\nPrice with VAT: " + getPriceVAT() 
+                + greenText + "\nPrice with VAT: " + getPriceVAT()
+                + greenText + "\n------------------------------------------------"
                 + greenText;
             return str;
         }
@@ -256,12 +283,14 @@ public class StockItem {
         public String toString(){
             String str;
             System.out.println(yellowText + "Getting stock info...");
-            str = greenText + "Stock code:     " + getStockCode() 
+            str = greenText + "-------------------STOCK INFO-------------------"
+                + greenText + "\nStock code:     " + getStockCode() 
                 + greenText + "\nStock name:     " + getStockName() 
                 + greenText + "\nStock desc:     " + getStockDesc() 
                 + greenText + "\nUnits in stock: " + getQuantity() 
                 + greenText + "\nPrice:          " + getPrice() 
-                + greenText + "\nPrice with VAT: " + getPriceVAT() 
+                + greenText + "\nPrice with VAT: " + getPriceVAT()
+                + greenText + "\n------------------------------------------------"
                 + greenText;
             return str;
         }
@@ -285,12 +314,14 @@ public class StockItem {
         public String toString(){
             String str;
             System.out.println(yellowText + "Getting stock info...");
-            str = greenText + "Stock code:     " + getStockCode() 
+            str = greenText + "-------------------STOCK INFO-------------------"
+                + greenText + "\nStock code:     " + getStockCode() 
                 + greenText + "\nStock name:     " + getStockName() 
                 + greenText + "\nStock desc:     " + getStockDesc() 
                 + greenText + "\nUnits in stock: " + getQuantity() 
                 + greenText + "\nPrice:          " + getPrice() 
-                + greenText + "\nPrice with VAT: " + getPriceVAT() 
+                + greenText + "\nPrice with VAT: " + getPriceVAT()
+                + greenText + "\n------------------------------------------------"
                 + greenText;
             return str;
         }
@@ -314,12 +345,14 @@ public class StockItem {
         public String toString(){
             String str;
             System.out.println(yellowText + "Getting stock info...");
-            str = greenText + "Stock code:     " + getStockCode() 
+            str = greenText + "-------------------STOCK INFO-------------------"
+                + greenText + "\nStock code:     " + getStockCode() 
                 + greenText + "\nStock name:     " + getStockName() 
                 + greenText + "\nStock desc:     " + getStockDesc() 
                 + greenText + "\nUnits in stock: " + getQuantity() 
                 + greenText + "\nPrice:          " + getPrice() 
-                + greenText + "\nPrice with VAT: " + getPriceVAT() 
+                + greenText + "\nPrice with VAT: " + getPriceVAT()
+                + greenText + "\n------------------------------------------------"
                 + greenText;
             return str;
         }

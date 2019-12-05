@@ -19,13 +19,12 @@ public class TestStockItem {
         StockItem stock = new StockItem("E#404", 1, 1);
         if(stock.stockPositive == true){
             System.out.println(stock.toString());
-            stock.addStock(5);
+            stock.addStock();
             System.out.println(stock.toString());
-            stock.sellStock(20);
+            stock.sellStock();
             System.out.println(stock.toString());
-            stock.setPrice(20);
+            stock.setPrice();
             System.out.println(stock.toString());
-            stock.addStock(0);
             }
         }
     
