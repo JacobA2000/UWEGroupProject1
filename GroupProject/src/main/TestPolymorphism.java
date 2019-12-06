@@ -17,7 +17,7 @@ public class TestPolymorphism {
             System.out.println(stock.toString());
             stock.setPrice();
             System.out.println(stock.toString());
-            
+            System.out.println(stock.redText + "END OF TESTING FOR " + stock.getStockName() + " STOCK ITEM");
         }
     }
 

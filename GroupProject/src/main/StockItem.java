@@ -110,7 +110,7 @@ public class StockItem {
             this.numInStock = quantityInStock;
             this.itemPrice = price;
             System.out.println(purpleText + "Creating a stock with " + numInStock 
-                    + " units of unknown item, price of " + price + " each, and stock code " + fixedStockCode + "...");
+                    + " units of stock, price of " + price + " each, and stock code " + fixedStockCode + "...");
         }
     }
     
@@ -177,7 +177,7 @@ public class StockItem {
             incrementValid = false;     //if the ammount of stock to add is less than 1 set incrementValid flag to false.
         }
         if (incrementAmount + numInStock > 100){
-            System.out.println(redText + "Cannot add stock, stock level is at max capacity.");
+            System.out.println(redText + "Cannot add stock, as stock level would exceed the max capacity of 100.");
             stockLevelValid = false; //if the ammount of stock would exceed 100 after adding set stockLevelValid flag to false.
         }
         if (incrementValid && stockLevelValid){
